@@ -1,19 +1,19 @@
 package com.example.project_management_system.dtos;
 
-import org.springframework.http.HttpStatus;
+import com.example.project_management_system.model.Users;
 
-public class ResponseDTO {
-
+public class ResponseRemoveUserDTO {
     private int statusCode;
-
     private String msg;
+    private Users user;
 
-    public ResponseDTO(){}
-    public ResponseDTO(int statusCode, String msg) {
+    public ResponseRemoveUserDTO(int statusCode, String msg, Users user) {
         this.statusCode = statusCode;
         this.msg = msg;
+        this.user = user;
     }
 
+    public ResponseRemoveUserDTO(){}
 
     public int getStatusCode() {
         return statusCode;
@@ -29,5 +29,13 @@ public class ResponseDTO {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

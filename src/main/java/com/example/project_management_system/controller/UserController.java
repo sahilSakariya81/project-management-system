@@ -4,6 +4,7 @@ package com.example.project_management_system.controller;
 import com.example.project_management_system.dtos.LoginRequestDTO;
 import com.example.project_management_system.dtos.ResponseDTO;
 import com.example.project_management_system.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("log-in")
-    public ResponseDTO login(@RequestBody LoginRequestDTO loginRequestDTO){
+    public ResponseDTO login(@Valid @RequestBody LoginRequestDTO loginRequestDTO){
         return userService.logIn(loginRequestDTO);
     }
 }

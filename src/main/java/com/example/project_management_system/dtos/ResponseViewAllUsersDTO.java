@@ -1,19 +1,21 @@
 package com.example.project_management_system.dtos;
 
-import org.springframework.http.HttpStatus;
+import com.example.project_management_system.model.Users;
 
-public class ResponseDTO {
+import java.util.List;
 
+public class ResponseViewAllUsersDTO {
     private int statusCode;
-
     private String msg;
+    private List<Users> users;
 
-    public ResponseDTO(){}
-    public ResponseDTO(int statusCode, String msg) {
+    public ResponseViewAllUsersDTO(int statusCode, String msg, List<Users> users) {
         this.statusCode = statusCode;
         this.msg = msg;
+        this.users = users;
     }
 
+    public ResponseViewAllUsersDTO(){}
 
     public int getStatusCode() {
         return statusCode;
@@ -29,5 +31,13 @@ public class ResponseDTO {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public List<Users> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Users> users) {
+        this.users = users;
     }
 }

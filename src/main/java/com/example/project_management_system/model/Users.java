@@ -2,6 +2,7 @@ package com.example.project_management_system.model;
 
 import com.example.project_management_system.enums.UserRoles;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class Users {
@@ -10,14 +11,41 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+
     private String userName;
+
 
     private String email;
 
+
     private String password;
+
+
+    private String contactNumber;
+
 
     @Enumerated(EnumType.STRING)
     private UserRoles role;
+
+
+    public Users(String userName, String email, String password, String contactNumber, UserRoles role) {
+
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.contactNumber = contactNumber;
+        this.role = role;
+    }
+
+    public Users(){}
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
 
     public Long getUserId() {
         return userId;
