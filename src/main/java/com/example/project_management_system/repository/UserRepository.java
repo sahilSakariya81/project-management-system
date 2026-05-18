@@ -9,10 +9,9 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<Users,Long> {
 
-    @Query
     Users findByUserName(String userName);
 
-    @Query
+
     Users findByUserNameAndPassword(String userName,String password);
 
     @Query(value = "SELECT * FROM users WHERE role != 'ADMIN'", nativeQuery = true)

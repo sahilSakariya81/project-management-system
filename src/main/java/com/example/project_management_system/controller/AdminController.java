@@ -17,23 +17,23 @@ public class AdminController {
     AdminService adminService;
 
     @PostMapping("register-new-user")
-    public ResponseDTO registerNewUser(@Valid @RequestBody RequestRegistrationDTO user , @RequestHeader Long adminId){
-        return adminService.registerNewUser(user,adminId);
+    public ResponseDTO registerNewUser(@Valid @RequestBody RequestRegistrationDTO user){
+        return adminService.registerNewUser(user);
     }
 
     @DeleteMapping("remove-user")
-    public ResponseRemoveUserDTO removeUser(@Valid @RequestParam Long userId, @RequestHeader Long adminId){
-        return adminService.removeUser(userId,adminId);
+    public ResponseRemoveUserDTO removeUser(@Valid @RequestParam Long userId){
+        return adminService.removeUser(userId);
     }
 
     @GetMapping("get-all-users")
-    public ResponseViewAllUsersDTO getAllUsers(@RequestHeader Long adminId){
-        return adminService.viewAllUsers(adminId);
+    public ResponseViewAllUsersDTO getAllUsers(){
+        return adminService.viewAllUsers();
     }
 
     @PutMapping("update-user-role")
-    public ResponseRemoveUserDTO updateUserRoel(@RequestHeader Long adminId,@RequestBody RequestUpdateUserRoleDTO dto){
-        return adminService.update(adminId,dto);
+    public ResponseRemoveUserDTO updateUserRoel(@RequestBody RequestUpdateUserRoleDTO dto){
+        return adminService.update(dto);
     }
 
 
